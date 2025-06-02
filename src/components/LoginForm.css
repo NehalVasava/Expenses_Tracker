@@ -1,0 +1,240 @@
+/* components/LoginForm.css */
+
+/* Base container for the entire login page */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden; /* Hide overflow from background elements */
+
+  /* Unique Background: Abstract shapes with blur and gradient */
+  background: linear-gradient(135deg, #a7d9ff 0%, #e6f2ff 100%);
+  position: relative;
+  font-family: 'Inter', sans-serif; /* Modern, clean font */
+  color: #333;
+}
+
+/* Pseudo-elements for abstract background shapes */
+.login-container::before,
+.login-container::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3); /* Slightly transparent white */
+  filter: blur(50px); /* Frosted glass effect for background shapes */
+  z-index: 0;
+}
+
+.login-container::before {
+  width: 300px;
+  height: 300px;
+  top: -50px;
+  left: -50px;
+  background: rgba(100, 150, 255, 0.4); /* Blueish blob */
+  animation: moveBlob1 15s infinite alternate ease-in-out;
+}
+
+.login-container::after {
+  width: 400px;
+  height: 400px;
+  bottom: -100px;
+  right: -100px;
+  background: rgba(255, 180, 200, 0.4); /* Pinkish blob */
+  animation: moveBlob2 20s infinite alternate ease-in-out;
+}
+
+/* Keyframe animations for background blobs */
+@keyframes moveBlob1 {
+  0% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(50px, 80px) scale(1.1); }
+  50% { transform: translate(-30px, 100px) scale(0.9); }
+  75% { transform: translate(70px, -50px) scale(1.2); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes moveBlob2 {
+  0% { transform: translate(0, 0) scale(1); }
+  30% { transform: translate(-60px, -40px) scale(1.1); }
+  60% { transform: translate(40px, -70px) scale(0.95); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+
+/* The Login Form Container */
+.login-form {
+  background: rgba(255, 255, 255, 0.8); /* Semi-transparent white for glassmorphism */
+  backdrop-filter: blur(15px); /* Frosted glass effect */
+  -webkit-backdrop-filter: blur(15px); /* Safari support */
+  padding: 45px 40px; /* Generous padding */
+  border-radius: 20px; /* Very rounded corners */
+  width: 90%;
+  max-width: 450px; /* Slightly wider max-width */
+  /* Layered shadows for depth */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1),
+              0 5px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Lighter border for glass effect */
+  z-index: 1; /* Ensure form is above background blobs */
+  position: relative; /* For z-index to work */
+  animation: popIn 0.6s ease-out forwards; /* Pop-in animation on load */
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.9) translateY(30px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 35px;
+  color: #1a237e; /* Deep blue for heading */
+  font-size: 2.5em; /* Larger, more impactful heading */
+  font-weight: 800; /* Extra bold */
+  letter-spacing: -0.03em; /* Tighten letter spacing */
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.05); /* Subtle text shadow */
+}
+
+.form-group {
+  margin-bottom: 25px; /* More space between groups */
+  position: relative; /* For potential floating labels or input effects */
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  color: #4a4a4a; /* Slightly softer label color */
+  margin-bottom: 10px; /* Space below label */
+  font-size: 1em;
+}
+
+/* Unique Input Styling: Underline effect with subtle inset shadow */
+.form-group input {
+  width: 100%;
+  padding: 12px 0; /* Only vertical padding for underline effect */
+  border: none; /* No border by default */
+  border-bottom: 2px solid #b3d9ff; /* Blue underline */
+  background-color: transparent; /* Transparent background */
+  font-size: 1.1em;
+  color: #333;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 0; /* No border radius for underline effect */
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,0.05); /* Subtle inner shadow for depth */
+}
+
+.form-group input::placeholder {
+  color: #a0a0a0;
+  opacity: 0.8;
+}
+
+.form-group input:focus {
+  border-color: #007bff; /* Brighter blue on focus */
+  box-shadow: inset 0 -2px 0 #007bff, 0 0 0 4px rgba(0, 123, 255, 0.15); /* Stronger underline and glow */
+  outline: none;
+}
+
+/* Unique Button Styling: Gradient with active press effect */
+.login-button {
+  width: 100%;
+  padding: 16px; /* Larger button */
+  /* Gradient background */
+  background: linear-gradient(45deg, #007bff 0%, #00c49f 100%); /* Blue to green gradient */
+  color: white;
+  border: none;
+  font-size: 1.2em;
+  font-weight: 700;
+  border-radius: 12px; /* More rounded button */
+  cursor: pointer;
+  transition: all 0.3s ease; /* Smooth transition for all properties */
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3); /* Stronger shadow */
+  margin-top: 25px; /* Space above button */
+  letter-spacing: 0.05em; /* Slightly spaced out text */
+}
+
+.login-button:hover {
+  background: linear-gradient(45deg, #0056b3 0%, #00a080 100%); /* Darker gradient on hover */
+  transform: translateY(-5px); /* More pronounced lift */
+  box-shadow: 0 12px 25px rgba(0, 123, 255, 0.4); /* Deeper shadow on hover */
+}
+
+.login-button:active {
+  transform: translateY(0); /* Press effect */
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+  background: linear-gradient(45deg, #004085 0%, #008060 100%); /* Even darker on active */
+}
+
+/* Error Message */
+.error-msg {
+  color: #dc3545;
+  background-color: rgba(255, 224, 230, 0.9); /* Lighter, semi-transparent background */
+  padding: 10px 15px;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 0.9em;
+  border: 1px solid rgba(255, 192, 203, 0.7);
+  box-shadow: 0 2px 5px rgba(255, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .login-form {
+    padding: 30px 20px;
+    border-radius: 15px;
+  }
+  .login-form h2 {
+    font-size: 2em;
+    margin-bottom: 25px;
+  }
+  .form-group input {
+    font-size: 1em;
+  }
+  .login-button {
+    padding: 14px;
+    font-size: 1em;
+  }
+}
+/* components/LoginForm.css (add these new rules) */
+
+.register-link-text {
+  text-align: center;
+  margin-top: 20px; /* Space above the link text */
+  font-size: 0.95em;
+  color: #555;
+}
+
+.register-link {
+  color: #007bff; /* Primary blue for the link */
+  text-decoration: none; /* No underline by default */
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.register-link:hover {
+  color: #0056b3; /* Darker blue on hover */
+  text-decoration: underline; /* Underline on hover */
+}
+
+/* components/LoginForm.css (add these new rules) */
+
+.forgot-password-link-text {
+  text-align: right; /* Align to the right */
+  margin-top: 10px; /* Space above the button */
+  margin-bottom: 5px; /* Space below the link */
+  font-size: 0.9em;
+}
+
+.forgot-password-link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500; /* Slightly less bold than register link */
+  transition: color 0.2s ease;
+}
+
+.forgot-password-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}

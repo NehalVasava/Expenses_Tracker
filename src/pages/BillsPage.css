@@ -1,0 +1,324 @@
+/* pages/BillsPage.css */
+
+.bills-page-container {
+  padding: 35px; /* Consistent padding */
+  /* Unique Background: Soft radial gradient with subtle texture */
+  background: radial-gradient(circle at top left, #e0f7fa 0%, #c8e6c9 100%); /* Soft, calming gradient */
+  min-height: calc(100vh - 180px); /* Adjust for header, footer, and bottom nav */
+  font-family: 'Poppins', sans-serif; /* Consistent modern font */
+  color: #2c3e50; /* Darker, sophisticated text color */
+  max-width: 850px; /* Wider for better layout */
+  margin: 40px auto 100px auto; /* Center the form, add space for fixed bottom nav */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12), 0 5px 15px rgba(0, 0, 0, 0.08); /* Deeper, softer shadow */
+  border-radius: 25px; /* More rounded corners */
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Subtle light border */
+  position: relative;
+  overflow: hidden; /* Hide potential overflow from background elements */
+  z-index: 1;
+}
+
+/* Abstract background shapes (similar to Home.css) */
+.bills-page-container::before,
+.bills-page-container::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.2; /* Very subtle */
+  filter: blur(60px); /* More blur */
+  z-index: 0;
+}
+
+.bills-page-container::before {
+  width: 400px;
+  height: 400px;
+  top: -100px;
+  right: -100px;
+  background: #ADD8E6; /* Light blue */
+  animation: floatEffect 20s infinite alternate ease-in-out;
+}
+
+.bills-page-container::after {
+  width: 350px;
+  height: 350px;
+  bottom: -80px;
+  left: -80px;
+  background: #90EE90; /* Light green */
+  animation: floatEffect 25s infinite alternate-reverse ease-in-out;
+}
+
+@keyframes floatEffect {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, 20px) scale(1.05); }
+  66% { transform: translate(-20px, 40px) scale(0.95); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+
+.bills-page-container h2 {
+  font-size: 2.8em; /* Larger, more impactful heading */
+  margin-bottom: 40px;
+  color: #1a237e; /* Deep blue, consistent with titles */
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: -0.02em; /* Tighter letter spacing */
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.05); /* Subtle text shadow */
+  position: relative;
+  z-index: 1;
+}
+
+.bills-controls {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 35px; /* More space */
+  gap: 15px; /* More gap */
+  position: relative;
+  z-index: 1;
+}
+
+.bills-controls label {
+  font-weight: 600;
+  color: #4a4a4a; /* Darker label color */
+  font-size: 1.05em;
+}
+
+.bills-controls select {
+  padding: 10px 15px; /* More padding */
+  border: 1px solid #b3d9ff; /* Lighter, more inviting border */
+  border-radius: 10px; /* More rounded */
+  background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+  font-size: 1em;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.05); /* Subtle inset shadow */
+}
+
+.bills-controls select:focus {
+  border-color: #007bff;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1), 0 0 0 4px rgba(0, 123, 255, 0.25);
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly more opaque on focus */
+}
+
+.bills-list-section {
+  background: rgba(255, 255, 255, 0.75); /* Glassmorphism */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 20px; /* More rounded */
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08); /* Deeper shadow */
+  padding: 30px; /* More padding */
+  margin-bottom: 40px; /* More space */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.bills-list-section h3 {
+  color: #1a237e;
+  font-size: 1.8em; /* Larger section headings */
+  margin-bottom: 25px;
+  border-bottom: 2px solid #e0e0e0; /* Thicker separator */
+  padding-bottom: 12px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.bills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* More space */
+}
+
+.bill-item {
+  display: flex;
+  justify-content: space-between; /* Keep details and amount on one line */
+  align-items: center;
+  background-color: rgba(240, 255, 250, 0.8); /* Light minty background */
+  border: 1px solid rgba(200, 240, 230, 0.7); /* Subtle border */
+  border-left: 6px solid #4CAF50; /* Stronger green left border */
+  padding: 15px 20px; /* More padding */
+  border-radius: 10px;
+  font-size: 1.15em; /* Slightly larger text */
+  color: #333;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: all 0.2s ease;
+}
+
+.bill-item:hover {
+  transform: translateY(-3px); /* Subtle lift on hover */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.bill-item .bill-details {
+  display: flex;
+  flex-direction: column; /* Stack name and amount within details */
+  flex-grow: 1;
+  margin-bottom: 0; /* Remove default margin */
+}
+
+.bill-item .bill-name {
+  font-weight: 600;
+  font-size: 1.2em; /* Larger name */
+  color: #005099;
+}
+
+.bill-item .bill-amount {
+  font-weight: bold;
+  font-size: 1.3em; /* Larger amount */
+  color: #dc3545; /* Red for bills */
+  margin-top: 5px; /* Space between name and amount */
+}
+
+.bill-item .bill-due-date {
+  font-size: 0.95em; /* Readable date */
+  color: #777;
+  text-align: right;
+  flex-shrink: 0; /* Prevent shrinking */
+  margin-left: 20px; /* Space from bill details */
+}
+
+.add-bill-btn {
+  display: block;
+  width: 80%;
+  max-width: 350px;
+  margin: 40px auto 0 auto; /* Center button with top margin */
+  padding: 18px; /* Larger padding for a more prominent button */
+  background: linear-gradient(45deg, #007bff 0%, #00c49f 100%); /* Blue to Teal Gradient */
+  color: white;
+  border: none;
+  border-radius: 15px; /* More rounded corners */
+  font-size: 1.3em; /* Larger font size */
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Custom cubic-bezier for dynamic transition */
+  box-shadow: 0 10px 25px rgba(0, 123, 255, 0.4); /* Deeper shadow */
+  letter-spacing: 0.05em; /* Spaced out letters */
+  text-transform: uppercase; /* Uppercase text */
+}
+
+.add-bill-btn:hover {
+  background: linear-gradient(45deg, #0056b3 0%, #00a080 100%);
+  transform: translateY(-7px); /* More pronounced lift on hover */
+  box-shadow: 0 18px 35px rgba(0, 123, 255, 0.5); /* Stronger shadow on hover */
+}
+
+.add-bill-btn:active {
+  transform: translateY(0); /* Press down effect */
+  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+  background: linear-gradient(45deg, #004085 0%, #008060 100%); /* Slightly darker on active */
+}
+
+.bills-page-note, .no-data-message {
+  text-align: center;
+  font-style: italic;
+  color: #777;
+  padding: 20px;
+  background-color: rgba(253, 253, 253, 0.9); /* Lighter, semi-transparent */
+  border-radius: 10px;
+  border: 1px solid #eee;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.03);
+  margin-top: 30px; /* More space */
+  font-size: 0.95em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .bills-page-container {
+    padding: 25px;
+    margin: 25px auto 90px auto;
+    border-radius: 20px;
+  }
+  .bills-page-container h2 {
+    font-size: 2.2em;
+    margin-bottom: 35px;
+  }
+  .bills-controls {
+    gap: 10px;
+  }
+  .bills-controls label {
+    font-size: 1em;
+  }
+  .bills-controls select {
+    padding: 8px 12px;
+  }
+  .bills-list-section {
+    padding: 25px;
+    border-radius: 15px;
+  }
+  .bills-list-section h3 {
+    font-size: 1.6em;
+    margin-bottom: 20px;
+  }
+  .bill-item {
+    padding: 12px 15px;
+    flex-direction: column; /* Stack details and amount on small screens */
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .bill-item .bill-details {
+    width: 100%;
+    margin-bottom: 0;
+  }
+  .bill-item .bill-name {
+    font-size: 1.1em;
+  }
+  .bill-item .bill-amount {
+    font-size: 1.2em;
+    align-self: flex-end; /* Align amount to the right */
+    margin-top: 0; /* Remove top margin */
+  }
+  .bill-item .bill-due-date {
+    width: 100%;
+    text-align: left;
+    margin-left: 0;
+    font-size: 0.9em;
+  }
+  .add-bill-btn {
+    width: 90%;
+    padding: 15px;
+    font-size: 1.1em;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bills-page-container {
+    padding: 15px;
+    margin: 15px auto 90px auto;
+    border-radius: 18px;
+  }
+  .bills-page-container h2 {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+  }
+  .bills-controls {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  .bills-controls select {
+    width: 100%;
+  }
+  .bills-list-section {
+    padding: 20px;
+    border-radius: 15px;
+  }
+  .bills-list-section h3 {
+    font-size: 1.4em;
+  }
+  .bill-item {
+    padding: 10px 12px;
+  }
+  .bill-item .bill-name {
+    font-size: 1em;
+  }
+  .bill-item .bill-amount {
+    font-size: 1.1em;
+  }
+  .add-bill-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 1em;
+    border-radius: 10px;
+  }
+}

@@ -1,0 +1,560 @@
+/* Home.css */
+
+/* General styles - Enhanced background and font */
+.home-container {
+  padding: 35px; /* Slightly more padding */
+  /* Unique Background: Soft radial gradient with subtle texture */
+  background: radial-gradient(circle at top left, #e0f7fa 0%, #c8e6c9 100%); /* Soft, calming gradient */
+  min-height: calc(100vh - 100px);
+  font-family: 'Poppins', sans-serif; /* A more modern and elegant font */
+  color: #2c3e50; /* Darker, sophisticated text color */
+  position: relative;
+  overflow: hidden; /* Hide potential overflow from background shapes */
+}
+
+/* Abstract background shapes (similar to auth forms, but lighter) */
+.home-container::before,
+.home-container::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.2; /* Very subtle */
+  filter: blur(60px); /* More blur */
+  z-index: 0;
+}
+
+.home-container::before {
+  width: 400px;
+  height: 400px;
+  top: -100px;
+  right: -100px;
+  background: #ADD8E6; /* Light blue */
+  animation: floatEffect 20s infinite alternate ease-in-out;
+}
+
+.home-container::after {
+  width: 350px;
+  height: 350px;
+  bottom: -80px;
+  left: -80px;
+  background: #90EE90; /* Light green */
+  animation: floatEffect 25s infinite alternate-reverse ease-in-out;
+}
+
+@keyframes floatEffect {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, 20px) scale(1.05); }
+  66% { transform: translate(-20px, 40px) scale(0.95); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+
+.home-container h2 {
+  font-size: 2.8em; /* Larger, more impactful heading */
+  margin-bottom: 40px;
+  color: #1a237e; /* Deep blue for titles */
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: -0.02em; /* Tighter letter spacing */
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.05); /* Subtle text shadow */
+  position: relative;
+  z-index: 1; /* Ensure text is above background shapes */
+}
+
+/* Overview Cards - Glassmorphism and deeper shadows */
+.overview {
+  display: flex;
+  gap: 30px; /* More space between cards */
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 1;
+}
+
+.card {
+  flex: 1;
+  min-width: 280px;
+  max-width: 350px; /* Slightly wider cards */
+  /* Glassmorphism effect */
+  background: rgba(255, 255, 255, 0.7); /* Slightly transparent white */
+  backdrop-filter: blur(10px); /* Frosted glass */
+  -webkit-backdrop-filter: blur(10px);
+  padding: 30px; /* More padding */
+  border-left: 8px solid; /* Thicker border */
+  border-image: linear-gradient(to bottom, #007bff, #00c49f) 1; /* Gradient border */
+  border-radius: 18px; /* More rounded */
+  box-shadow: 0 15px 30px rgba(0,0,0,0.12), 0 5px 15px rgba(0,0,0,0.08); /* Deeper, softer shadow */
+  transition: all 0.3s ease-in-out; /* Smoother transition */
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02); /* More pronounced lift and slight scale */
+  box-shadow: 0 20px 40px rgba(0,0,0,0.18), 0 8px 20px rgba(0,0,0,0.12); /* Enhanced shadow on hover */
+}
+
+.card h3 {
+  margin-bottom: 18px;
+  color: #1a237e; /* Consistent heading color */
+  font-size: 1.4em; /* Larger card titles */
+  border-bottom: 1px dashed #e0e0e0; /* Dashed separator */
+  padding-bottom: 12px;
+  font-weight: 600;
+}
+
+.card p {
+  font-size: 1.1em;
+  font-weight: 500;
+  color: #4a4a4a;
+}
+
+.amount-display {
+  font-size: 2.5em; /* Larger amount display */
+  color: #28a745; /* Green */
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.category-display {
+  font-size: 1.8em; /* Larger category display */
+  color: #dc3545; /* Red */
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.tip-card {
+  border-image: linear-gradient(to bottom, #ffc107, #ffa000) 1; /* Orange gradient border */
+}
+
+.tip-card h3 {
+  color: #d89b00; /* Darker orange */
+}
+
+.tip-text {
+  font-style: normal; /* Remove italic */
+  color: #6c757d;
+  line-height: 1.6;
+  background-color: rgba(255, 240, 200, 0.4); /* Light background for tip text */
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 15px;
+}
+
+/* Quick Actions with Icons/Labels - More dynamic and vibrant */
+.quick-actions-icons {
+  margin-top: 60px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.quick-actions-icons h3 {
+  font-size: 2em; /* Larger section title */
+  color: #1a237e;
+  margin-bottom: 35px;
+  font-weight: 700;
+}
+
+.action-item {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 30px; /* More spacing */
+  cursor: pointer;
+  padding: 20px 15px; /* More padding */
+  border-radius: 20px; /* Very rounded */
+  transition: all 0.3s ease;
+  min-width: 130px;
+  background: rgba(255, 255, 255, 0.6); /* Semi-transparent background */
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08); /* Subtle shadow */
+}
+
+.action-item:hover {
+  background: linear-gradient(45deg, #007bff, #00c49f); /* Gradient background on hover */
+  transform: translateY(-8px) scale(1.05); /* Stronger lift and scale */
+  box-shadow: 0 12px 25px rgba(0, 123, 255, 0.25); /* More pronounced shadow */
+}
+
+.action-item:active {
+  transform: translateY(0);
+  background: linear-gradient(45deg, #0056b3, #00a080); /* Darker gradient on active */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.action-icon {
+  font-size: 4em; /* Larger icons */
+  margin-bottom: 10px;
+  line-height: 1;
+  color: #007bff; /* Primary blue */
+  transition: color 0.3s ease;
+}
+
+.action-item:hover .action-icon {
+  color: white; /* White icon on hover */
+  text-shadow: 0 0 10px rgba(255,255,255,0.7); /* Glow effect */
+}
+
+.action-label {
+  font-size: 1.15em; /* Slightly larger label */
+  font-weight: 600;
+  color: #4a4a4a;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.action-item:hover .action-label {
+  color: white; /* White label on hover */
+}
+
+/* Responsive adjustments for icons (unchanged logic, adjusted values) */
+@media (max-width: 768px) {
+  .quick-actions-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* More gap */
+  }
+
+  .action-item {
+    flex: 0 0 calc(50% - 20px); /* Adjusted to fit better */
+    max-width: calc(50% - 20px);
+    margin: 0;
+    padding: 15px 10px; /* Adjusted padding */
+  }
+
+  .action-icon {
+    font-size: 3.5em; /* Slightly smaller icons */
+  }
+
+  .action-label {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-container {
+    padding: 20px;
+  }
+  .home-container h2 {
+    font-size: 2.2em;
+    margin-bottom: 30px;
+  }
+  .overview {
+    gap: 20px;
+  }
+  .card {
+    min-width: unset; /* Allow cards to shrink more */
+    max-width: 100%;
+    padding: 25px;
+  }
+  .action-item {
+    flex: 0 0 calc(100% - 20px);
+    max-width: calc(100% - 20px);
+  }
+}
+
+
+/* --- Styles for NEW Sections --- */
+.new-section {
+  background: rgba(255, 255, 255, 0.75); /* Consistent glassmorphism */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 30px; /* More padding */
+  border-radius: 15px; /* More rounded */
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08); /* Deeper shadow */
+  margin-bottom: 40px; /* More space below sections */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle light border */
+  position: relative;
+  z-index: 1;
+}
+
+.new-section h3 {
+  font-size: 1.8em; /* Larger section headings */
+  color: #1a237e;
+  margin-bottom: 25px;
+  text-align: center;
+  border-bottom: 2px solid #e0e0e0; /* Thicker separator */
+  padding-bottom: 12px;
+  font-weight: 700;
+}
+
+.new-section button {
+  padding: 12px 25px; /* Larger button */
+  background: linear-gradient(45deg, #007bff, #00c49f); /* Gradient button */
+  color: white;
+  border: none;
+  border-radius: 10px; /* More rounded button */
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2); /* Subtle shadow */
+  display: block;
+  width: fit-content;
+  margin: 30px auto 0 auto; /* More space and center */
+  font-size: 1.05em;
+  letter-spacing: 0.02em;
+}
+
+.new-section button:hover {
+  background: linear-gradient(45deg, #0056b3, #00a080); /* Darker gradient on hover */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3);
+}
+
+/* Spending Habits Insight Card */
+.spending-insight-card {
+  text-align: center;
+  padding: 20px 0; /* More padding */
+}
+
+.spending-insight-card p {
+  font-size: 1.3em; /* Larger text */
+  color: #34495e; /* Darker grey */
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+/* Category Breakdown Section */
+.category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* More space between items */
+  margin-bottom: 25px;
+}
+
+.category-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(245, 245, 245, 0.8); /* Lighter background */
+  padding: 12px 18px; /* More padding */
+  border-radius: 10px; /* More rounded */
+  font-size: 1.05em;
+  color: #444;
+  border-left: 6px solid; /* Thicker left border */
+  border-image: linear-gradient(to bottom, #94d3a0, #66bb6a) 1; /* Green gradient for categories */
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+
+.category-item:hover {
+  transform: translateX(5px); /* Slide effect on hover */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.category-item:nth-child(even) {
+  background: rgba(235, 235, 235, 0.8); /* Slightly darker alternate background */
+}
+
+.category-amount {
+  font-weight: 700; /* Bolder amount */
+  color: #333;
+}
+
+/* Recent Transactions Section */
+.transactions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.transaction-item {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 15px; /* More gap */
+  align-items: center;
+  background: rgba(240, 248, 255, 0.8); /* Light blueish background */
+  padding: 15px 20px; /* More padding */
+  border-radius: 10px; /* More rounded */
+  font-size: 1em;
+  color: #333;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  border-left: 5px solid #64b5f6; /* Light blue left border */
+  transition: all 0.2s ease;
+}
+
+.transaction-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.transaction-item span:first-child {
+  font-weight: 600;
+  color: #005099;
+}
+
+.transaction-item .transaction-date {
+  font-size: 0.88em; /* Slightly larger date */
+  color: #777;
+  text-align: right;
+}
+
+.transaction-item .transaction-amount {
+  font-weight: bold;
+  color: #dc3545;
+  text-align: right;
+  font-size: 1.1em;
+}
+
+/* Budget Overview Section */
+.budget-progress-bar-container {
+  width: 95%; /* Wider progress bar */
+  background-color: #e0e0e0;
+  border-radius: 12px; /* More rounded */
+  height: 25px; /* Taller */
+  overflow: hidden;
+  margin: 0 auto 20px auto;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.1); /* Inset shadow for depth */
+}
+
+.budget-progress-bar {
+  height: 100%;
+  /* Dynamic gradient for progress */
+  background: linear-gradient(to right, #28a745, #8bc34a); /* Green gradient */
+  border-radius: 12px;
+  transition: width 0.6s ease-in-out, background-color 0.4s ease;
+}
+
+/* Color change for progress bar if budget is exceeded */
+.budget-progress-bar.exceeded {
+  background: linear-gradient(to right, #dc3545, #ff5722); /* Red gradient */
+}
+
+
+.budget-summary {
+  text-align: center;
+  font-size: 1.2em; /* Larger summary text */
+  font-weight: 500;
+  color: #34495e; /* Darker grey */
+  margin-bottom: 25px;
+}
+
+
+/* Upcoming Bills Section */
+.bills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* More space between bills */
+  margin-bottom: 25px;
+}
+
+.bill-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(240, 255, 250, 0.8); /* Light minty background */
+  border: 1px solid rgba(200, 240, 230, 0.7); /* Subtle border */
+  border-left: 6px solid #4CAF50; /* Stronger green left border */
+  padding: 15px 20px; /* More padding */
+  border-radius: 10px;
+  font-size: 1.15em; /* Slightly larger text */
+  color: #333;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: all 0.2s ease;
+}
+
+.bill-item:hover {
+  transform: translateY(-3px); /* Subtle lift on hover */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.bill-item .bill-name {
+  font-weight: 600;
+  color: #005099;
+}
+
+.bill-item .bill-amount {
+  font-weight: bold;
+  color: #28a745; /* Green for bill amounts */
+}
+
+.bill-item .due-date {
+  font-weight: 600;
+  color: #d9534f;
+  font-size: 0.9em; /* Smaller for distinctness */
+}
+
+.upcoming-bills-section > p {
+  text-align: center;
+  font-style: italic;
+  color: #777;
+  margin-bottom: 25px;
+  font-size: 0.95em;
+}
+
+/* Responsive adjustments for new sections */
+@media (max-width: 768px) {
+  .new-section {
+    padding: 25px;
+    margin: 0 15px 30px 15px; /* Adjusted margins for mobile */
+  }
+
+  .new-section h3 {
+    font-size: 1.6em;
+  }
+
+  .spending-insight-card p {
+    font-size: 1.1em;
+  }
+
+  .bill-item {
+    font-size: 1em;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px; /* More gap for stacked elements */
+    padding: 12px 15px;
+  }
+  .bill-item .bill-amount,
+  .bill-item .due-date {
+    font-size: 0.95em;
+  }
+
+  .transaction-item {
+    grid-template-columns: 1fr auto; /* Name | Amount */
+    padding: 12px 15px;
+  }
+  .transaction-item .transaction-date {
+    display: none; /* Hide date on smaller screens to simplify */
+  }
+  .transaction-item .transaction-amount {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-container {
+    padding: 15px;
+  }
+  .home-container h2 {
+    font-size: 2em;
+    margin-bottom: 25px;
+  }
+  .card {
+    padding: 20px;
+    border-radius: 15px;
+  }
+  .card h3 {
+    font-size: 1.2em;
+  }
+  .amount-display, .category-display {
+    font-size: 2em;
+  }
+  .new-section {
+    padding: 20px;
+    margin: 0 10px 25px 10px;
+  }
+  .new-section h3 {
+    font-size: 1.4em;
+    margin-bottom: 20px;
+  }
+  .new-section button {
+    padding: 10px 20px;
+    font-size: 0.95em;
+  }
+  .budget-summary {
+    font-size: 1em;
+  }
+}

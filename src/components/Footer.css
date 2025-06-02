@@ -1,0 +1,16 @@
+.app-normal-footer {
+  background-color: #003366;
+  color: #666;
+  padding: 15px 20px;
+  text-align: center;
+  border-top: 1px solid #e0e0e0;
+  font-size: 0.9em;
+
+  /* --- Styles to make the footer fixed at the bottom --- */
+  position: fixed; /* Positions the element relative to the viewport */
+  bottom: 0;       /* Aligns it to the bottom edge of the viewport */
+  left: 0;         /* Aligns it to the left edge of the viewport */
+  width: 100%;     /* Makes it span the full width of the viewport */
+  z-index: 999;    /* Ensures it stays on top of most other content */
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.05); /* Optional: subtle shadow for separation */
+}

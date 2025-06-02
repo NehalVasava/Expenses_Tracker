@@ -1,0 +1,57 @@
+/* Navbar.css */
+
+.bottom-nav {
+  position: fixed; /* Fixes the navbar at the bottom of the viewport */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex; /* Arranges items in a row */
+  justify-content: space-around; /* Distributes space evenly between items */
+  align-items: center;
+  background-color: #ffffff; /* White background */
+  border-top: 1px solid #e0e0e0; /* Subtle border at the top */
+  padding: 10px 0; /* Vertical padding */
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  z-index: 1000; /* Ensures it stays on top of other content */
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column; /* Stacks icon above text */
+  align-items: center; /* Centers content horizontally */
+  color: #666666; /* Default text/icon color */
+  text-decoration: none; /* Removes underline from Link component */
+  font-size: 0.9em; /* Adjust font size */
+  font-weight: 500;
+  padding: 5px 10px; /* Padding for clickable area */
+  border-radius: 8px; /* Slightly rounded corners */
+  transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer; /* Indicate it's clickable */
+}
+
+.nav-item:hover {
+  color: #007bff; /* Primary blue on hover */
+  background-color: #f0f8ff; /* Light background on hover */
+  transform: translateY(-2px); /* Subtle lift effect */
+}
+
+.nav-item svg { /* Styling for the React Icons */
+  font-size: 1.8em; /* Adjust icon size */
+  margin-bottom: 5px; /* Space between icon and text */
+}
+
+/* Active state styling */
+.nav-item.active {
+  color: #007bff; /* Primary blue for active item */
+  /* background-color: #e6f2ff; */ /* Optional: background for active item */
+  font-weight: 700; /* Bolder text for active item */
+  border-bottom: 3px solid #007bff; /* Underline effect for active */
+  padding-bottom: 2px; /* Adjust padding to make space for underline */
+}
+
+/* Optional: Hide if not on a small screen or if you only want it on specific pages */
+/* @media (min-width: 769px) {
+  .bottom-nav {
+    display: none;
+  }
+} */

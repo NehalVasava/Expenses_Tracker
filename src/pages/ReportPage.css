@@ -1,0 +1,352 @@
+/* pages/ReportPage.css */
+
+.report-page-container {
+  padding: 35px; /* Consistent padding */
+  /* Unique Background: Soft radial gradient with subtle texture */
+  background: radial-gradient(circle at top left, #e0f7fa 0%, #c8e6c9 100%); /* Soft, calming gradient */
+  min-height: calc(100vh - 180px); /* Adjust for header, footer, and bottom nav */
+  font-family: 'Poppins', sans-serif; /* Consistent modern font */
+  color: #2c3e50; /* Darker, sophisticated text color */
+  max-width: 850px; /* Slightly wider for reports */
+  margin: 40px auto 100px auto; /* Center the form, add space for fixed bottom nav */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12), 0 5px 15px rgba(0, 0, 0, 0.08); /* Deeper, softer shadow */
+  border-radius: 25px; /* More rounded corners */
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Subtle light border */
+  position: relative;
+  overflow: hidden; /* Hide potential overflow from background elements */
+  z-index: 1;
+}
+
+/* Abstract background shapes (similar to Home.css) */
+.report-page-container::before,
+.report-page-container::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.2; /* Very subtle */
+  filter: blur(60px); /* More blur */
+  z-index: 0;
+}
+
+.report-page-container::before {
+  width: 400px;
+  height: 400px;
+  top: -100px;
+  right: -100px;
+  background: #ADD8E6; /* Light blue */
+  animation: floatEffect 20s infinite alternate ease-in-out;
+}
+
+.report-page-container::after {
+  width: 350px;
+  height: 350px;
+  bottom: -80px;
+  left: -80px;
+  background: #90EE90; /* Light green */
+  animation: floatEffect 25s infinite alternate-reverse ease-in-out;
+}
+
+@keyframes floatEffect {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, 20px) scale(1.05); }
+  66% { transform: translate(-20px, 40px) scale(0.95); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+
+.report-page-container h2 {
+  font-size: 2.8em; /* Larger, more impactful heading */
+  margin-bottom: 40px;
+  color: #1a237e; /* Deep blue, consistent with titles */
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: -0.02em; /* Tighter letter spacing */
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.05); /* Subtle text shadow */
+  position: relative;
+  z-index: 1;
+}
+
+.report-controls {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 35px; /* More space */
+  gap: 15px; /* More gap */
+  position: relative;
+  z-index: 1;
+}
+
+.report-controls label {
+  font-weight: 600;
+  color: #4a4a4a; /* Darker label color */
+  font-size: 1.05em;
+}
+
+.report-controls select {
+  padding: 10px 15px; /* More padding */
+  border: 1px solid #b3d9ff; /* Lighter, more inviting border */
+  border-radius: 10px; /* More rounded */
+  background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+  font-size: 1em;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.05); /* Subtle inset shadow */
+}
+
+.report-controls select:focus {
+  border-color: #007bff;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1), 0 0 0 4px rgba(0, 123, 255, 0.25);
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly more opaque on focus */
+}
+
+.report-summary {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px; /* More space */
+  position: relative;
+  z-index: 1;
+}
+
+.report-card {
+  background: rgba(255, 255, 255, 0.7); /* Glassmorphism */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 18px; /* More rounded */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1), 0 4px 10px rgba(0, 0, 0, 0.06); /* Deeper, softer shadow */
+  padding: 30px; /* More padding */
+  text-align: center;
+  width: 100%;
+  max-width: 350px; /* Slightly wider summary card */
+  border-left: 8px solid; /* Thicker border */
+  border-image: linear-gradient(to bottom, #28a745, #66bb6a) 1; /* Green gradient border */
+  transition: all 0.3s ease-in-out;
+}
+
+.report-card:hover {
+  transform: translateY(-5px) scale(1.01); /* Subtle lift and scale */
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15), 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.report-card h3 {
+  color: #1a237e; /* Consistent heading color */
+  font-size: 1.4em;
+  margin-bottom: 15px;
+  border-bottom: 1px dashed #e0e0e0; /* Dashed separator */
+  padding-bottom: 10px;
+  font-weight: 600;
+}
+
+.report-card p {
+  font-size: 2.5em; /* Larger amount display */
+  font-weight: 700;
+  color: #007bff; /* Primary blue for main amounts */
+  letter-spacing: -0.01em;
+}
+
+.report-section {
+  background: rgba(255, 255, 255, 0.75); /* Glassmorphism */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 20px; /* More rounded */
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08); /* Deeper shadow */
+  padding: 30px; /* More padding */
+  margin-bottom: 40px; /* More space */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.report-section h3 {
+  color: #1a237e;
+  font-size: 1.8em; /* Larger section headings */
+  margin-bottom: 25px;
+  border-bottom: 2px solid #e0e0e0; /* Thicker separator */
+  padding-bottom: 12px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.category-report-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* More space */
+}
+
+.category-report-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px; /* More padding */
+  border-bottom: 1px dashed #e0e0e0; /* Dashed border */
+  font-size: 1.05em;
+  background-color: rgba(248, 248, 248, 0.8); /* Lighter, semi-transparent background */
+  border-radius: 10px; /* More rounded */
+  border-left: 6px solid #64b5f6; /* Light blue accent */
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+
+.category-report-item:hover {
+  transform: translateX(5px); /* Slide effect on hover */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.category-report-item:last-child {
+  border-bottom: none;
+}
+
+.category-name {
+  font-weight: 600;
+  color: #444;
+}
+
+.category-amount {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Chart Wrapper - Integrated into glassmorphism theme */
+.chart-wrapper {
+  width: 100%;
+  height: 350px; /* Taller chart container */
+  margin: 30px 0; /* More margin */
+  background-color: rgba(255, 255, 255, 0.7); /* Glassmorphism background */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 15px; /* More rounded */
+  padding: 15px; /* More padding */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08); /* Subtle shadow */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Placeholder styles (if still used) */
+.placeholder-section {
+  background-color: rgba(234, 247, 255, 0.8); /* Lighter blue, semi-transparent */
+  border: 1px dashed rgba(167, 217, 255, 0.7);
+  text-align: center;
+  padding: 40px;
+}
+
+.placeholder-chart {
+  background-color: rgba(216, 239, 255, 0.8); /* Even lighter blue, semi-transparent */
+  border: 1px dashed rgba(123, 200, 246, 0.7);
+  padding: 60px 20px;
+  text-align: center;
+  border-radius: 10px;
+  font-style: italic;
+  color: #888;
+  margin-top: 25px;
+}
+
+.no-data-message {
+  text-align: center;
+  font-style: italic;
+  color: #777;
+  padding: 20px;
+  background-color: rgba(253, 253, 253, 0.9); /* Lighter, semi-transparent */
+  border-radius: 10px;
+  border: 1px solid #eee;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.03);
+}
+
+.report-notes {
+  text-align: center;
+  font-style: italic;
+  color: #888;
+  margin-top: 40px; /* More space */
+  font-size: 0.95em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .report-page-container {
+    padding: 25px;
+    margin: 25px auto 90px auto;
+    border-radius: 20px;
+  }
+  .report-page-container h2 {
+    font-size: 2.2em;
+    margin-bottom: 35px;
+  }
+  .report-controls {
+    gap: 10px;
+  }
+  .report-controls label {
+    font-size: 1em;
+  }
+  .report-controls select {
+    padding: 8px 12px;
+  }
+  .report-summary {
+    margin-bottom: 35px;
+  }
+  .report-card {
+    padding: 25px;
+    border-radius: 15px;
+  }
+  .report-card h3 {
+    font-size: 1.2em;
+  }
+  .report-card p {
+    font-size: 2em;
+  }
+  .report-section {
+    padding: 25px;
+    border-radius: 15px;
+  }
+  .report-section h3 {
+    font-size: 1.6em;
+    margin-bottom: 20px;
+  }
+  .category-report-item {
+    font-size: 1em;
+    padding: 10px 15px;
+  }
+  .chart-wrapper {
+    height: 300px; /* Slightly smaller height on mobile */
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .report-page-container {
+    padding: 15px;
+    margin: 15px auto 90px auto;
+    border-radius: 18px;
+  }
+  .report-page-container h2 {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+  }
+  .report-controls {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  .report-controls select {
+    width: 100%;
+  }
+  .report-card {
+    padding: 20px;
+  }
+  .report-card p {
+    font-size: 1.8em;
+  }
+  .report-section {
+    padding: 20px;
+  }
+  .report-section h3 {
+    font-size: 1.4em;
+  }
+  .category-report-item {
+    font-size: 0.95em;
+    padding: 8px 12px;
+  }
+  .chart-wrapper {
+    height: 250px; /* Even smaller height on very small screens */
+  }
+}

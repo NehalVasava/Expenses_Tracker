@@ -1,0 +1,109 @@
+/* ViewExpenses.css */
+.view-expenses-container {
+  padding: 30px;
+  background-color: #f9fbfd;
+  min-height: calc(100vh - 100px);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.view-expenses-container h2 {
+  font-size: 2em;
+  color: #003366;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.no-expenses-message {
+  text-align: center;
+  font-size: 1.2em;
+  color: #666;
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #e6f2ff;
+  border-radius: 10px;
+  border: 1px dashed #cce0ff;
+}
+
+.expenses-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between expense items */
+  max-width: 700px; /* Max width for list */
+  margin: 0 auto; /* Center the list */
+}
+
+.expense-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  transition: transform 0.2s ease;
+  border-left: 5px solid #dc3545; /* Red accent for expenses */
+}
+
+.expense-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.expense-details {
+  display: flex;
+  flex-direction: column; /* Stack title, category, date */
+  flex-grow: 1; /* Allow details to take available space */
+}
+
+.expense-title {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #005099;
+}
+
+.expense-category {
+  font-size: 0.9em;
+  color: #777;
+  margin-top: 3px;
+  font-style: italic;
+}
+
+.expense-date {
+  font-size: 0.9em;
+  color: #777;
+  margin-top: 5px;
+}
+
+.expense-amount {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #dc3545; /* Red for amount */
+  margin-left: 20px; /* Space between details and amount */
+  flex-shrink: 0; /* Prevent amount from shrinking */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .expense-item {
+    padding: 12px 15px;
+  }
+  .expense-title {
+    font-size: 1.1em;
+  }
+  .expense-amount {
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .expense-item {
+    flex-direction: column; /* Stack details and amount on very small screens */
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .expense-amount {
+    margin-left: 0;
+    align-self: flex-end; /* Align amount to the right */
+  }
+}

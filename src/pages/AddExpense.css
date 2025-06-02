@@ -1,0 +1,278 @@
+/* AddExpense.css */
+
+.add-expense-container {
+  padding: 45px; /* Even more padding for a luxurious feel */
+  background: radial-gradient(circle at top left, #e0f7fa 0%, #c8e6c9 100%); /* Less transparent white for a crisper glassmorphism */
+  backdrop-filter: blur(20px); /* Stronger frosted glass effect */
+  -webkit-backdrop-filter: blur(20px);
+  min-height: calc(100vh - 200px); /* Adjust for header, footer, and bottom nav */
+  font-family: 'Poppins', sans-serif; /* Consistent modern font */
+  color: #2c3e50; /* Darker, sophisticated text color */
+  max-width: 750px; /* Wider form for better layout */
+  margin: 60px auto 120px auto; /* Center the form, add more space for fixed bottom nav */
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2), 0 10px 25px rgba(0, 0, 0, 0.15); /* Deeper, more pronounced shadow */
+  border-radius: 30px; /* Even more rounded corners */
+  border: 2px solid rgba(255, 255, 255, 0.6); /* More visible, yet subtle, light border */
+  animation: fadeInForm 1s ease-out; /* Slower, smoother fade-in animation */
+  position: relative;
+  z-index: 1;
+  overflow: hidden; /* Ensure background elements don't spill */
+}
+
+/* Add more subtle, animated background elements inside the container */
+.add-expense-container::before,
+.add-expense-container::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px); /* More blur for a softer glow */
+  z-index: -1; /* Behind the content */
+  opacity: 0.6; /* Slightly more visible */
+}
+
+.add-expense-container::before {
+  top: -80px;
+  left: -80px;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(173, 216, 230, 0.7), transparent 70%); /* Light blue radial gradient */
+  animation: floatCircle1 20s infinite alternate ease-in-out;
+}
+
+.add-expense-container::after {
+  bottom: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(144, 238, 144, 0.7), transparent 70%); /* Light green radial gradient */
+  animation: floatCircle2 25s infinite alternate-reverse ease-in-out;
+}
+
+/* Additional smaller, subtle animated circles */
+.add-expense-container .circle-1,
+.add-expense-container .circle-2 {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(30px);
+  z-index: -1;
+  opacity: 0.4;
+}
+
+.add-expense-container .circle-1 {
+  top: 20%;
+  right: 10%;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 200, 150, 0.5); /* Soft orange */
+  animation: floatCircle3 15s infinite alternate ease-in-out;
+}
+
+.add-expense-container .circle-2 {
+  bottom: 15%;
+  left: 10%;
+  width: 80px;
+  height: 80px;
+  background: rgba(200, 150, 255, 0.5); /* Soft purple */
+  animation: floatCircle4 12s infinite alternate-reverse ease-in-out;
+}
+
+
+@keyframes floatCircle1 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, 50px) scale(1.1); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes floatCircle2 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-50px, -40px) scale(0.9); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes floatCircle3 {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(20px, -30px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes floatCircle4 {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-25px, 20px); }
+  100% { transform: translate(0, 0); }
+}
+
+
+@keyframes fadeInForm {
+  from { opacity: 0; transform: translateY(40px); } /* More pronounced initial translateY */
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.add-expense-container h2 {
+  font-size: 3.2em; /* Even larger, more impactful heading */
+  color: #1a237e; /* Deep blue, consistent with titles */
+  text-align: center;
+  margin-bottom: 50px; /* More space below heading */
+  font-weight: 900; /* Extra bold */
+  letter-spacing: -0.04em; /* Tighter letter spacing */
+  text-shadow: 3px 3px 8px rgba(0,0,0,0.1); /* More pronounced text shadow */
+}
+
+.form-group {
+  margin-bottom: 35px; /* More space between form groups */
+}
+
+.form-group label {
+  display: block;
+  font-size: 1.2em; /* Slightly larger labels */
+  color: #005099; /* Consistent label color */
+  margin-bottom: 15px; /* More space below label */
+  font-weight: 700; /* Bolder labels */
+  position: relative;
+  z-index: 1;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="date"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 16px 20px; /* Increased padding for inputs */
+  border: none; /* No default border */
+  border-bottom: 4px solid #b3d9ff; /* Thicker blue underline effect */
+  background-color: rgba(255, 255, 255, 0.75); /* Slightly more transparent input background */
+  border-radius: 12px; /* More rounded corners for inputs */
+  font-size: 1.1em; /* Slightly larger font */
+  box-sizing: border-box;
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother, more dynamic transitions */
+  color: #333;
+  box-shadow: inset 0 3px 8px rgba(0,0,0,0.1); /* More pronounced inset shadow */
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #a0a0a0;
+  opacity: 0.6; /* Slightly more transparent placeholder */
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #007bff; /* Primary blue on focus */
+  box-shadow: inset 0 3px 8px rgba(0,0,0,0.2), 0 0 0 8px rgba(0, 123, 255, 0.45); /* Stronger, wider glow on focus */
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.98); /* Almost opaque on focus */
+  transform: scale(1.01); /* Subtle scale on focus */
+}
+
+.form-group textarea {
+  min-height: 100px; /* Taller textarea */
+}
+
+.submit-button {
+  display: block;
+  width: 100%;
+  padding: 20px; /* Even larger button */
+  background: linear-gradient(45deg, #28a745 0%, #4CAF50 100%); /* More vibrant green gradient */
+  color: white;
+  border: none;
+  border-radius: 18px; /* More rounded button */
+  font-size: 1.4em; /* Larger font */
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1); /* Custom cubic-bezier for a more dynamic transition */
+  box-shadow: 0 12px 30px rgba(40, 167, 69, 0.5); /* Stronger, deeper shadow */
+  margin-top: 50px; /* More space above button */
+  letter-spacing: 0.1em; /* More spaced out text */
+  text-transform: uppercase; /* Uppercase text for emphasis */
+  position: relative;
+  z-index: 1;
+}
+
+.submit-button:hover {
+  background: linear-gradient(45deg, #218838 0%, #409040 100%); /* Darker gradient on hover */
+  transform: translateY(-10px) scale(1.02); /* More pronounced lift and slight scale */
+  box-shadow: 0 25px 50px rgba(40, 167, 69, 0.6); /* Even deeper shadow on hover */
+}
+
+.submit-button:active {
+  transform: translateY(0); /* Press effect */
+  box-shadow: 0 8px 20px rgba(40, 167, 69, 0.4);
+  background: linear-gradient(45deg, #1e7e34 0%, #3a7d3a 100%); /* Even darker on active */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .add-expense-container {
+    padding: 30px;
+    margin: 30px auto 90px auto;
+    border-radius: 20px;
+  }
+  .add-expense-container h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+  }
+  .form-group {
+    margin-bottom: 25px;
+  }
+  .form-group label {
+    font-size: 1.1em;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 12px 15px;
+    font-size: 1em;
+    border-bottom: 3px solid #b3d9ff;
+  }
+  .submit-button {
+    padding: 18px;
+    font-size: 1.2em;
+    margin-top: 40px;
+    border-radius: 12px;
+  }
+  .add-expense-container::before,
+  .add-expense-container::after,
+  .add-expense-container .circle-1,
+  .add-expense-container .circle-2 {
+    filter: blur(30px); /* Less blur on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .add-expense-container {
+    padding: 20px;
+    margin: 20px auto 90px auto;
+    border-radius: 18px;
+  }
+  .add-expense-container h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+  }
+  .form-group {
+    margin-bottom: 20px;
+  }
+  .form-group label {
+    font-size: 1em;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 10px 12px;
+    font-size: 0.9em;
+    border-bottom: 2px solid #b3d9ff;
+  }
+  .submit-button {
+    padding: 15px;
+    font-size: 1.1em;
+    margin-top: 30px;
+    border-radius: 10px;
+  }
+  .add-expense-container::before,
+  .add-expense-container::after,
+  .add-expense-container .circle-1,
+  .add-expense-container .circle-2 {
+    display: none; /* Hide animated circles on very small screens for performance/simplicity */
+  }
+}

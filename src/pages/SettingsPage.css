@@ -1,0 +1,366 @@
+/* pages/SettingsPage.css */
+
+.settings-page-container {
+  padding: 35px; /* Consistent padding */
+  /* Unique Background: Soft radial gradient with subtle texture */
+  background: radial-gradient(circle at top left, #e0f7fa 0%, #c8e6c9 100%); /* Soft, calming gradient */
+  min-height: calc(100vh - 180px); /* Adjust for header, footer, and bottom nav */
+  font-family: 'Poppins', sans-serif; /* Consistent modern font */
+  color: #2c3e50; /* Darker, sophisticated text color */
+  max-width: 750px; /* Slightly wider for settings */
+  margin: 40px auto 100px auto; /* Center the form, add space for fixed bottom nav */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12), 0 5px 15px rgba(0, 0, 0, 0.08); /* Deeper, softer shadow */
+  border-radius: 25px; /* More rounded corners */
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Subtle light border */
+  position: relative;
+  overflow: hidden; /* Hide potential overflow from background elements */
+  z-index: 1;
+}
+
+/* Abstract background shapes (similar to Home.css) */
+.settings-page-container::before,
+.settings-page-container::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.2; /* Very subtle */
+  filter: blur(60px); /* More blur */
+  z-index: 0;
+}
+
+.settings-page-container::before {
+  width: 400px;
+  height: 400px;
+  top: -100px;
+  right: -100px;
+  background: #ADD8E6; /* Light blue */
+  animation: floatEffect 20s infinite alternate ease-in-out;
+}
+
+.settings-page-container::after {
+  width: 350px;
+  height: 350px;
+  bottom: -80px;
+  left: -80px;
+  background: #90EE90; /* Light green */
+  animation: floatEffect 25s infinite alternate-reverse ease-in-out;
+}
+
+@keyframes floatEffect {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, 20px) scale(1.05); }
+  66% { transform: translate(-20px, 40px) scale(0.95); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+
+.settings-page-container h2 {
+  font-size: 2.8em; /* Larger, more impactful heading */
+  margin-bottom: 40px;
+  color: #1a237e; /* Deep blue, consistent with titles */
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: -0.02em; /* Tighter letter spacing */
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.05); /* Subtle text shadow */
+  position: relative;
+  z-index: 1;
+}
+
+.settings-section {
+  background: rgba(255, 255, 255, 0.75); /* Glassmorphism */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 20px; /* More rounded */
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08); /* Deeper shadow */
+  padding: 30px; /* More padding */
+  margin-bottom: 40px; /* More space */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.settings-section h3 {
+  color: #1a237e;
+  font-size: 1.8em; /* Larger section headings */
+  margin-bottom: 25px;
+  border-bottom: 2px solid #e0e0e0; /* Thicker separator */
+  padding-bottom: 12px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 1.15em; /* Slightly larger labels */
+  color: #005099; /* Consistent label color */
+  margin-bottom: 10px; /* More space below label */
+  font-weight: 600;
+}
+
+.form-group input[type="text"],
+.form-group select {
+  width: 100%;
+  padding: 12px 15px; /* Increased padding for inputs */
+  border: none; /* No default border */
+  border-bottom: 2px solid #b3d9ff; /* Blue underline effect */
+  background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent input background */
+  border-radius: 10px; /* More rounded corners for inputs */
+  font-size: 1em;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  color: #333;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.05); /* Subtle inset shadow */
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #007bff;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1), 0 0 0 4px rgba(0, 123, 255, 0.25);
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly more opaque on focus */
+}
+
+.toggle-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px; /* More space */
+  padding: 12px 0; /* More padding */
+  border-bottom: 1px dashed #f0f0f0;
+}
+
+.toggle-group:last-of-type {
+  border-bottom: none;
+}
+
+.toggle-group label {
+  font-size: 1.15em; /* Larger label */
+  color: #555;
+  flex-grow: 1;
+}
+
+/* Custom Toggle Switch Styling - Enhanced */
+.toggle-switch {
+  position: relative;
+  width: 50px; /* Wider switch */
+  height: 25px; /* Taller switch */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #ccc;
+  border-radius: 25px; /* More rounded */
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.toggle-switch:checked {
+  background-color: #28a745; /* Green when checked */
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1), 0 0 0 3px rgba(40, 167, 69, 0.25); /* Glow on checked */
+}
+
+.toggle-switch::before {
+  content: '';
+  position: absolute;
+  top: 3px; /* Adjusted position */
+  left: 3px; /* Adjusted position */
+  width: 19px; /* Larger circle */
+  height: 19px; /* Larger circle */
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2); /* Shadow for the circle */
+}
+
+.toggle-switch:checked::before {
+  transform: translateX(25px); /* Adjusted translation */
+  background-color: white; /* Ensure white remains */
+}
+
+.settings-action-button {
+  display: block;
+  width: 100%;
+  padding: 14px; /* More padding */
+  background: linear-gradient(45deg, #007bff 0%, #00c49f 100%); /* Gradient button */
+  color: white;
+  border: none;
+  border-radius: 10px; /* More rounded */
+  font-size: 1.05em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+  margin-top: 20px; /* More space */
+  letter-spacing: 0.02em;
+}
+
+.settings-action-button:hover {
+  background: linear-gradient(45deg, #0056b3 0%, #00a080 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3);
+}
+
+.settings-action-button.reset-button {
+  background: linear-gradient(45deg, #dc3545 0%, #ff5722 100%); /* Red gradient for reset */
+  margin-top: 15px;
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.2);
+}
+
+.settings-action-button.reset-button:hover {
+  background: linear-gradient(45deg, #c82333 0%, #e64a19 100%);
+  box-shadow: 0 6px 15px rgba(220, 53, 69, 0.3);
+}
+
+.data-note {
+  font-size: 0.95em; /* Slightly larger note */
+  color: #888;
+  text-align: center;
+  margin-top: 15px; /* More space */
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.save-settings-button {
+  display: block;
+  width: 80%;
+  max-width: 350px; /* Slightly wider */
+  margin: 50px auto 20px auto; /* More space */
+  padding: 18px; /* Larger button */
+  background: linear-gradient(45deg, #28a745 0%, #4CAF50 100%); /* Green gradient */
+  color: white;
+  border: none;
+  border-radius: 15px; /* More rounded */
+  font-size: 1.3em; /* Larger font */
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Custom cubic-bezier for dynamic transition */
+  box-shadow: 0 10px 25px rgba(40, 167, 69, 0.4);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.save-settings-button:hover {
+  background: linear-gradient(45deg, #218838 0%, #409040 100%);
+  transform: translateY(-7px);
+  box-shadow: 0 18px 35px rgba(40, 167, 69, 0.5);
+}
+
+.save-settings-button:active {
+  transform: translateY(0);
+  box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+  background: linear-gradient(45deg, #1e7e34 0%, #3a7d3a 100%);
+}
+
+.settings-page-note {
+  text-align: center;
+  font-style: italic;
+  color: #888;
+  margin-top: 40px;
+  font-size: 0.95em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .settings-page-container {
+    padding: 25px;
+    margin: 25px auto 90px auto;
+    border-radius: 20px;
+  }
+  .settings-page-container h2 {
+    font-size: 2.2em;
+    margin-bottom: 35px;
+  }
+  .settings-section {
+    padding: 25px;
+  }
+  .form-group label {
+    font-size: 1.05em;
+  }
+  .form-group input, .form-group select {
+    padding: 10px 12px;
+    font-size: 0.95em;
+  }
+  .toggle-group label {
+    font-size: 1.05em;
+  }
+  .toggle-switch {
+    width: 45px;
+    height: 22px;
+    border-radius: 22px;
+  }
+  .toggle-switch::before {
+    width: 17px;
+    height: 17px;
+    top: 2.5px;
+    left: 2.5px;
+  }
+  .toggle-switch:checked::before {
+    transform: translateX(23px);
+  }
+  .settings-action-button, .save-settings-button {
+    font-size: 1em;
+    padding: 12px;
+  }
+  .save-settings-button {
+    width: 100%;
+    max-width: unset;
+  }
+}
+
+@media (max-width: 480px) {
+  .settings-page-container {
+    padding: 20px;
+    margin: 15px auto 90px auto;
+    border-radius: 18px;
+  }
+  .settings-page-container h2 {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+  }
+  .settings-section {
+    padding: 20px;
+  }
+  .form-group {
+    margin-bottom: 20px;
+  }
+  .form-group label {
+    font-size: 1em;
+  }
+  .form-group input, .form-group select {
+    padding: 8px 10px;
+    font-size: 0.9em;
+  }
+  .toggle-group {
+    margin-bottom: 15px;
+    padding: 10px 0;
+  }
+  .toggle-group label {
+    font-size: 1em;
+  }
+  .toggle-switch {
+    width: 40px;
+    height: 20px;
+    border-radius: 20px;
+  }
+  .toggle-switch::before {
+    width: 16px;
+    height: 16px;
+    top: 2px;
+    left: 2px;
+  }
+  .toggle-switch:checked::before {
+    transform: translateX(20px);
+  }
+  .settings-action-button, .save-settings-button {
+    font-size: 0.95em;
+    padding: 10px;
+  }
+  .save-settings-button {
+    margin-top: 30px;
+  }
+}
